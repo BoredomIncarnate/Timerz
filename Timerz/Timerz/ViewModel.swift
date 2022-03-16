@@ -25,6 +25,11 @@ class ViewModel: ObservableObject {
         timeManager.addTimer(timeInSeconds: timeInSeconds)
     }
     
+    func playPauseTimer(timerId: Int) {
+        objectWillChange.send()
+        timeManager.playPauseTimer(timerId: timerId)
+    }
+    
     func deleteTimer(timerId: Int) {
         objectWillChange.send()
         timeManager.deleteTimer(timerId: timerId)

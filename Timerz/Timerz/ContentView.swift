@@ -17,7 +17,7 @@ struct Timers: View {
             Timers_Controls(addTimer: viewModel.addTimer)
                 .padding(.vertical)
                 .font(.title)
-            Timers_Body(timers: viewModel.timers, delete: viewModel.deleteTimer)
+            Timers_Body(timers: viewModel.timers, delete: viewModel.deleteTimer, playPause: viewModel.playPauseTimer)
             Spacer()
         }
         .onReceive(timer) { time in
@@ -48,10 +48,14 @@ struct Timers_Body: View {
     
     var timers: [TimerManager.TimerObj]
     var delete: (Int) -> Void
+    var playPause: (Int) -> Void
     
     var body: some View {
         ForEach(timers) { timer in
-            TimerView(amountOfTime: timer.secondsRemaining, deleteFunction: delete, id: timer.id)
+            TimerView(amountOfTime: timer.secondsRemaining,
+                      deleteFunction: delete,
+                      playPauseFunction: playPause,
+                      id: timer.id)
         }
     }
 }
@@ -60,6 +64,7 @@ struct TimerView: View {
     
     var amountOfTime: Int
     var deleteFunction: (Int) -> Void
+    var playPauseFunction: (Int) -> Void
     var id: Int
     
     var time: some View {
@@ -71,11 +76,17 @@ struct TimerView: View {
     var controls_play: some View {
         Image(systemName: "play.fill")
             .foregroundColor(.blue)
+            .onTapGesture {
+                playPauseFunction(id)
+            }
     }
     
     var controls_pause: some View {
         Image(systemName: "pause")
             .foregroundColor(.orange)
+            .onTapGesture {
+                playPauseFunction(id)
+            }
     }
     
     var controls_delete: some View {

@@ -27,7 +27,9 @@ class TimerManager: ObservableObject {
         }
         
         mutating func TicDown() -> Void {
-            secondsRemaining -= 1
+            if !isPaused {
+                secondsRemaining -= 1
+            }
         }
     }
     
@@ -38,6 +40,13 @@ class TimerManager: ObservableObject {
         timers.append(newTimer)
         idCounter += 1
         print("Timer Manger added timer \(newTimer)")
+    }
+    
+    func playPauseTimer(timerId: Int) -> Void {
+        if let timerToToggle = timers.firstIndex(where: { $0.id == timerId }) {
+            timers[timerToToggle].PlayPause()
+        }
+        
     }
     
     func deleteTimer(timerId: Int) -> Void {
