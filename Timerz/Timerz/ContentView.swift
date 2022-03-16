@@ -8,29 +8,33 @@
 import SwiftUI
 
 struct Timers: View {
+    
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         VStack {
-            Timers_Controls()
+            let _ = print("\(viewModel.timers)")
+            Timers_Controls(addTimer: viewModel.addTimer)
                 .padding(.vertical)
                 .font(.title)
-            Timers_Body()
+            Timers_Body(timers: viewModel.timers, delete: viewModel.deleteTimer)
             Spacer()
         }
     }
 }
 
 struct Timers_Controls: View {
+    
+    var addTimer: (Int) -> ()
+    
     @State private var timeToAdd = ""
-    @State private var showAlert: Bool = false
     var body: some View {
         HStack {
             TextField("Seconds", text: $timeToAdd)
                 .padding(.horizontal)
-            Button("Add Timer") {
-                showAlert = true
-            }
-                .alert("Important message", isPresented: $showAlert) {
-                Button("OK", role: .cancel) { }
+            Text("Add Timer").onTapGesture {
+                print("add timer")
+                addTimer(30)
             }
         }
         .padding(.all)
@@ -38,17 +42,22 @@ struct Timers_Controls: View {
 }
 
 struct Timers_Body: View {
-    let timers: [Int] = [20,30,50, 60]
+    
+    var timers: [TimerManager.TimerObj]
+    var delete: (Int) -> Void
+    
     var body: some View {
-        ForEach(timers, id: \.self) { timer in
-            Timer(amountOfTime: timer)
+        ForEach(timers) { timer in
+            TimerView(amountOfTime: timer.secondsRemaining, deleteFunction: delete, id: timer.id)
         }
     }
 }
 
-struct Timer: View {
+struct TimerView: View {
     
-    var amountOfTime: Int = 30
+    var amountOfTime: Int
+    var deleteFunction: (Int) -> Void
+    var id: Int
     
     var time: some View {
         Text("Time: \(amountOfTime)")
@@ -69,6 +78,9 @@ struct Timer: View {
     var controls_delete: some View {
         Image(systemName: "trash.fill")
             .foregroundColor(.red)
+            .onTapGesture {
+                deleteFunction(id)
+            }
     }
     
     var controls: some View {
@@ -90,8 +102,13 @@ struct Timer: View {
 }
 
 struct ContentView: View {
+    @ObservedObject var viewModel: ViewModel = ViewModel()
+    
     var body: some View {
-        Timers()
+        let _ = print("Content View loaded")
+        let _ = print("timers: \(viewModel.timers)")
+        Timers(viewModel: viewModel)
+        
     }
 }
 
