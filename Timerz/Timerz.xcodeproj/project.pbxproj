@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D12A6BA527E1873B00069C2B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A6BA427E1873B00069C2B /* ViewModel.swift */; };
+		D12A6BA727E1878400069C2B /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A6BA627E1878400069C2B /* TimerManager.swift */; };
 		D1EA02AE27DF183900D054D9 /* TimerzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA02AD27DF183900D054D9 /* TimerzApp.swift */; };
 		D1EA02B027DF183900D054D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA02AF27DF183900D054D9 /* ContentView.swift */; };
 		D1EA02B227DF183A00D054D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1EA02B127DF183A00D054D9 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D12A6BA427E1873B00069C2B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D12A6BA627E1878400069C2B /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		D1EA02AA27DF183900D054D9 /* Timerz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timerz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1EA02AD27DF183900D054D9 /* TimerzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerzApp.swift; sourceTree = "<group>"; };
 		D1EA02AF27DF183900D054D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 				D1EA02AF27DF183900D054D9 /* ContentView.swift */,
 				D1EA02B127DF183A00D054D9 /* Assets.xcassets */,
 				D1EA02B327DF183A00D054D9 /* Preview Content */,
+				D12A6BA427E1873B00069C2B /* ViewModel.swift */,
+				D12A6BA627E1878400069C2B /* TimerManager.swift */,
 			);
 			path = Timerz;
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1EA02B027DF183900D054D9 /* ContentView.swift in Sources */,
+				D12A6BA727E1878400069C2B /* TimerManager.swift in Sources */,
+				D12A6BA527E1873B00069C2B /* ViewModel.swift in Sources */,
 				D1EA02AE27DF183900D054D9 /* TimerzApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
