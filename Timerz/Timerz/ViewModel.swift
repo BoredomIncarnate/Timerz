@@ -29,4 +29,9 @@ class ViewModel: ObservableObject {
         objectWillChange.send()
         timeManager.deleteTimer(timerId: timerId)
     }
+    
+    func ticDown() {
+        objectWillChange.send()
+        timeManager.TicDown()
+    }
 }

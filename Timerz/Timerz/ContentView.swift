@@ -10,7 +10,7 @@ import SwiftUI
 struct Timers: View {
     
     @ObservedObject var viewModel: ViewModel
-    
+    @State private var timer = Timer.publish(every: 1, on: .main, in:.common).autoconnect()
     var body: some View {
         VStack {
             let _ = print("\(viewModel.timers)")
@@ -19,6 +19,9 @@ struct Timers: View {
                 .font(.title)
             Timers_Body(timers: viewModel.timers, delete: viewModel.deleteTimer)
             Spacer()
+        }
+        .onReceive(timer) { time in
+            viewModel.ticDown()
         }
     }
 }

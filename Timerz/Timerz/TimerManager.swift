@@ -12,6 +12,7 @@ class TimerManager: ObservableObject {
     var idCounter: Int = 0
     
     struct TimerObj: Identifiable {
+        
         var id: Int
         
         var secondsRemaining: Int
@@ -21,8 +22,8 @@ class TimerManager: ObservableObject {
             secondsRemaining += seconds
         }
         
-        mutating func Pause() -> Void {
-            isPaused = true
+        mutating func PlayPause() -> Void {
+            isPaused.toggle()
         }
         
         mutating func TicDown() -> Void {
@@ -47,7 +48,7 @@ class TimerManager: ObservableObject {
         
     }
     
-    @objc func TicDown() -> Void {
+    func TicDown() -> Void {
         for index in 0..<timers.count {
             timers[index].TicDown()
             print(timers[index])
