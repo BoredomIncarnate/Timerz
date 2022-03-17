@@ -35,9 +35,12 @@ struct Timers_Controls: View {
         HStack {
             TextField("Seconds", text: $timeToAdd)
                 .padding(.horizontal)
+                .keyboardType(.numberPad)
             Text("Add Timer").onTapGesture {
                 print("add timer")
-                addTimer(30)
+                if let timeInSeconds = Int(timeToAdd) {
+                    addTimer(timeInSeconds)
+                }
             }
         }
         .padding(.all)
@@ -51,11 +54,13 @@ struct Timers_Body: View {
     var playPause: (Int) -> Void
     
     var body: some View {
-        ForEach(timers) { timer in
-            TimerView(amountOfTime: timer.secondsRemaining,
-                      deleteFunction: delete,
-                      playPauseFunction: playPause,
-                      id: timer.id)
+        ScrollView {
+            ForEach(timers) { timer in
+                TimerView(amountOfTime: timer.secondsRemaining,
+                          deleteFunction: delete,
+                          playPauseFunction: playPause,
+                          id: timer.id)
+            }
         }
     }
 }
