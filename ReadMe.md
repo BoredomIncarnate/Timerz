@@ -22,8 +22,8 @@ You're gonna be able to rename those timers!
 
 ### TODO
 
-- [ ] Add Time To Timer
-- [ ] Remove Time From Timer
+- [x] Add Time To Timer
+- [x] Remove Time From Timer
 - [ ] Rename Timer
 
 ### THE FUTURE!
