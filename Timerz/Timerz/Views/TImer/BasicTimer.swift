@@ -22,7 +22,7 @@ extension Views {
                 .padding()
         }
         
-        var controls_play: some View {
+        var play: some View {
             Image(systemName: "play.fill")
                 .foregroundColor(.blue)
                 .onTapGesture {
@@ -30,7 +30,7 @@ extension Views {
                 }
         }
         
-        var controls_pause: some View {
+        var pause: some View {
             Image(systemName: "pause")
                 .foregroundColor(.orange)
                 .onTapGesture {
@@ -38,7 +38,7 @@ extension Views {
                 }
         }
         
-        var controls_delete: some View {
+        var delete: some View {
             Image(systemName: "trash.fill")
                 .foregroundColor(.red)
                 .onTapGesture {
@@ -49,11 +49,11 @@ extension Views {
         var controls: some View {
             HStack {
                 if isPaused {
-                    controls_play
+                    play
                 } else {
-                    controls_pause
+                    pause
                 }
-                controls_delete.padding(.horizontal)
+                delete.padding(.horizontal)
             }
             .font(.title)
         }
