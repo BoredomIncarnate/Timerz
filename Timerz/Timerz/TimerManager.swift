@@ -36,10 +36,14 @@ class TimerManager: ObservableObject {
     @Published private(set) var timers: [TimerObj] = []
     
     func addTimer(timeInSeconds: Int) -> Void {
+        
+        if timeInSeconds <= 0 {
+            return
+        }
+        
         let newTimer = TimerObj(id: idCounter, secondsRemaining: timeInSeconds)
         timers.append(newTimer)
         idCounter += 1
-        print("Timer Manger added timer \(newTimer)")
     }
     
     func playPauseTimer(timerId: Int) -> Void {
@@ -51,7 +55,6 @@ class TimerManager: ObservableObject {
     
     func deleteTimer(timerId: Int) -> Void {
         if let timerToDelete = timers.firstIndex(where: { $0.id == timerId }) {
-            print("Deleting Timer => \(timerToDelete)")
             timers.remove(at: timerToDelete)
         }
         
@@ -60,7 +63,6 @@ class TimerManager: ObservableObject {
     func TicDown() -> Void {
         for index in 0..<timers.count {
             timers[index].TicDown()
-            print(timers[index])
         }
     }
     

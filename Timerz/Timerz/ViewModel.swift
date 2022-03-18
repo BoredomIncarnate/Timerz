@@ -8,18 +8,24 @@
 import Foundation
 
 class ViewModel: ObservableObject {
+
+    init() {
+        addTimer(timeInSeconds: 30)
+    }
     
+    //MARK: - Time Keeping
     @Published private(set) var timeManager = TimerManager()
     
     var timers: [TimerManager.TimerObj] {
         timeManager.timers
     }
     
-    init() {
-        addTimer(timeInSeconds: 30)
+    func ticDown() {
+        objectWillChange.send()
+        timeManager.TicDown()
     }
     
-    //- Intents
+    //MARK: - Intents
     func addTimer(timeInSeconds: Int) {
         objectWillChange.send()
         timeManager.addTimer(timeInSeconds: timeInSeconds)
@@ -33,10 +39,5 @@ class ViewModel: ObservableObject {
     func deleteTimer(timerId: Int) {
         objectWillChange.send()
         timeManager.deleteTimer(timerId: timerId)
-    }
-    
-    func ticDown() {
-        objectWillChange.send()
-        timeManager.TicDown()
     }
 }
