@@ -14,6 +14,7 @@
 		D1496E8127E427470088A204 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1496E8027E427470088A204 /* Views.swift */; };
 		D1496E8527E429B20088A204 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1496E8427E429B20088A204 /* Register.swift */; };
 		D1496E8A27E42AF60088A204 /* BasicTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1496E8927E42AF60088A204 /* BasicTimer.swift */; };
+		D1496E9027E434D30088A204 /* TimerObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1496E8F27E434D30088A204 /* TimerObj.swift */; };
 		D1EA02AE27DF183900D054D9 /* TimerzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA02AD27DF183900D054D9 /* TimerzApp.swift */; };
 		D1EA02B027DF183900D054D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA02AF27DF183900D054D9 /* ContentView.swift */; };
 		D1EA02B227DF183A00D054D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1EA02B127DF183A00D054D9 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		D1496E8027E427470088A204 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		D1496E8427E429B20088A204 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		D1496E8927E42AF60088A204 /* BasicTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTimer.swift; sourceTree = "<group>"; };
+		D1496E8F27E434D30088A204 /* TimerObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerObj.swift; sourceTree = "<group>"; };
 		D1EA02AA27DF183900D054D9 /* Timerz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timerz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1EA02AD27DF183900D054D9 /* TimerzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerzApp.swift; sourceTree = "<group>"; };
 		D1EA02AF27DF183900D054D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				D1EA02B327DF183A00D054D9 /* Preview Content */,
 				D12A6BA427E1873B00069C2B /* ViewModel.swift */,
 				D12A6BA627E1878400069C2B /* TimerManager.swift */,
+				D1496E8F27E434D30088A204 /* TimerObj.swift */,
 			);
 			path = Timerz;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				D12A6BA527E1873B00069C2B /* ViewModel.swift in Sources */,
 				D1EA02AE27DF183900D054D9 /* TimerzApp.swift in Sources */,
 				D1496E8527E429B20088A204 /* Register.swift in Sources */,
+				D1496E9027E434D30088A204 /* TimerObj.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

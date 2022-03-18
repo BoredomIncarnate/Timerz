@@ -15,10 +15,10 @@ extension Views {
         var body: some View {
             VStack {
                 let _ = print("\(viewModel.timers)")
-                Views.Timers.Controls(addTimer: viewModel.addTimer)
+                Controls(addTimer: viewModel.addTimer)
                     .padding(.vertical)
                     .font(.title)
-                Views.Timers.Register(timers: viewModel.timers, delete: viewModel.deleteTimer, playPause: viewModel.playPauseTimer)
+                Register(timers: viewModel.timers, delete: viewModel.deleteTimer, playPause: viewModel.playPauseTimer)
                 Spacer()
             }
             .onReceive(timer) { time in
